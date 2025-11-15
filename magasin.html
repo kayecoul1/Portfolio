@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magasin - I SAGO SUGU</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 { text-align: center; color: #333; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .product {
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 10px;
+      background: green;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover { background: darkgreen; }
+    #cart {
+      margin-top: 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+	<link rel="icon" href="favicon.ico">
+</head>
+<body>
+  <h1>Bienvenue dans le magasin</h1>
+  <div class="products" id="products"></div>
+
+  <div id="cart">
+    <h2>🛒 Panier</h2>
+    <ul id="cartItems"></ul>
+    <button id="buyBtn">Acheter sur WhatsApp</button>
+  </div>
+
+  <script>
+    const productsDiv = document.getElementById("products");
+    const cartItems = document.getElementById("cartItems");
+    const buyBtn = document.getElementById("buyBtn");
+    let cart = [];
+
+    // Charger les produits depuis le serveur
+    fetch("products.json")
+      .then(res => res.json())
+      .then(data => {
+        const products = data.products || [];
+        products.forEach(p => {
+          const div = document.createElement("div");
+          div.className = "product";
+          div.innerHTML = `
+            <img src="${p.image}" alt="${p.name}" />
+            <h3>${p.name}</h3>
+            <p><strong>${p.price} F CFA</strong></p>
+            <button onclick="addToCart('${p.name}', ${p.price})">Ajouter</button>
+          `;
+          productsDiv.appendChild(div);
+        });
+      });
+
+    // Ajouter au panier
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      renderCart();
+    }
+
+    function renderCart() {
+      cartItems.innerHTML = "";
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - ${item.price} F CFA`;
+        cartItems.appendChild(li);
+      });
+    }
+
+    // Acheter via WhatsApp
+    buyBtn.addEventListener("click", () => {
+      if (cart.length === 0) {
+        alert("Votre panier est vide !");
+        return;
+      }
+
+      let message = "Bonjour, je veux acheter :%0A";
+      cart.forEach(item => {
+        message += `- ${item.name} à ${item.price}F%0A`;
+      });
+
+      // Remplace TON_NUMERO ci-dessous par ton vrai numéro WhatsApp (ex : 22398765432)
+      const whatsappNumber = "22390086340";
+      const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+      window.open(url, "_blank");
+    });
+  </script>
+</body>
+</html>

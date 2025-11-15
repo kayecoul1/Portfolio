@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Inscription - I SAGO SUGU</title>
+  <link rel="stylesheet" href="style.css">
+	<link rel="icon" href="favicon.ico">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">I SAGO SUGU</div>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="login.html">Connexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="card">
+    <h2>Créer un compte</h2>
+    <form id="signupForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Mot de passe (min 8)" required>
+      <button class="primary" type="submit">S'inscrire</button>
+    </form>
+    <p style="margin-top:12px;">Déjà inscrit ? <a href="login.html">Se connecter</a></p>
+  </div>
+
+<script>
+document.getElementById('signupForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const res = await fetch('/api/signup', {
+    method: 'POST',
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+  const data = await res.json();
+  if (data.ok) {
+    // rediriger vers magasin après inscription
+    window.location.href = 'magasin.html';
+  } else {
+    alert(data.message || 'Erreur inscription');
+  }
+});
+</script>
+</body>
+</html>
