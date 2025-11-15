@@ -13,37 +13,37 @@
     "image": "IMG_2620.JPG"
   },
   {
-    "id": "p2",
+    "id": "p3",
     "title": "Boucles d’oreilles",
     "price": "2 000 FCFA",
     "image": "IMG_2621.JPG"
   },
 	{
-    "id": "p2",
+    "id": "p4",
     "title": "Boucles d’oreilles",
     "price": "2 000 FCFA",
     "image": "IMG_2622.JPG"
   },
 	{
-    "id": "p2",
+    "id": "p5",
     "title": "Boucles d’oreilles",
     "price": "2 000 FCFA",
     "image": "IMG_2624.JPG"
   },
 	{
-    "id": "p2",
+    "id": "p6",
     "title": "Boucles d’oreilles",
     "price": "2 000 FCFA",
     "image": "IMG_2625.JPG"
   },
 {
-  "id": "p4",
-  "title": "bijou"
-  "price": "3 000 FCFA"
+  "id": "p7",
+  "title": "bijou",
+  "price": "3 000 FCFA",
   "image": "IMG_2627"
-}
+},
   {
-    "id": "p3",
+    "id": "p8",
     "title": "Bracelet argenté",
     "price": "4 000 FCFA",
     "image": "IMG_2626.JPG"
