@@ -1,0 +1,46 @@
+{
+  "products": [
+  {
+    "id": "p1",
+    "title": "Chaîne dorée",
+    "price": "3 500 FCFA",
+    "image": "images/IMG_2619.PNG"
+  },
+  {
+    "id": "p2",
+    "title": "Boucles d’oreilles",
+    "price": "2 000 FCFA",
+    "image": "images/IMG_2620.JPG"
+  },
+  {
+    "id": "p2",
+    "title": "Boucles d’oreilles",
+    "price": "2 000 FCFA",
+    "image": "images/IMG_2621.JPG"
+  },
+	{
+    "id": "p2",
+    "title": "Boucles d’oreilles",
+    "price": "2 000 FCFA",
+    "image": "images/IMG_2622.JPG"
+  },
+	{
+    "id": "p2",
+    "title": "Boucles d’oreilles",
+    "price": "2 000 FCFA",
+    "image": "images/IMG_2624.JPG"
+  },
+	{
+    "id": "p2",
+    "title": "Boucles d’oreilles",
+    "price": "2 000 FCFA",
+    "image": "images/IMG_2625.JPG"
+  },
+  {
+    "id": "p3",
+    "title": "Bracelet argenté",
+    "price": "4 000 FCFA",
+    "image": "images/IMG_2626.JPG"
+  }
+]
+}
